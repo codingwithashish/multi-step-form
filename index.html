@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <form>
+            <h2 class="form-heading">SignUp Here</h2>
+            <div class="progress-bar">
+                <div class="step">
+                    <p>name</p>
+                    <div class="bullet">
+                        <span>1</span>
+                        <div class="check">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>Contact</p>
+                    <div class="bullet">
+                        <span>2</span>
+                        <div class="check"></div>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>Address</p>
+                    <div class="bullet">
+                        <span>3</span>
+                        <div class="check"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step step-1 active">
+                <div class="form-group">
+                    <label for="first-name">First name</label>
+                    <input type="text" id="first-name" placeholder="First name" />
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last name</label>
+                    <input type="text" id="last-name" placeholder="last name" />
+                </div>
+                <div class="form-group">
+                    <label for="nick-name">Nick name</label>
+                    <input type="text" id="nick-name" placeholder="Nick name" />
+                </div>
+
+                <button id="next-btn">Next</button>
+            </div>
+
+            <div class="step step-2 ">
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" placeholder="Phone" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="phone" placeholder="Email" />
+                </div>
+                <button id="pre-btn">back</button> <button id="next-btn">Next</button>
+            </div>
+
+            <div class="step step-3 ">
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" placeholder="city" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Zip code</label>
+                    <input type="text" id="zip-code" placeholder="Zip code" />
+                </div>
+                <button id="pre-btn">back</button> <button id="submit-btn">Submit</button>
+            </div>
+        </form>
+
+    </section>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <section>
+        <form>
+            <h2 class="form-heading">SignUp Here</h2>
+            <div class="progress-bar">
+                <div class="step">
+                    <p>name</p>
+                    <div class="bullet">
+                        <span>1</span>
+                        <div class="check">
+                            <i class="fa fa-user">
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>Contact</p>
+                    <div class="bullet">
+                        <span>2</span>
+                        <div class="check"></div>
+                    </div>
+                </div>
+                <div class="step">
+                    <p>Address</p>
+                    <div class="bullet">
+                        <span>3</span>
+                        <div class="check"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step step-1 active">
+                <div class="form-group">
+                    <label for="first-name">First name</label>
+                    <input type="text" id="first-name" placeholder="First name" />
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last name</label>
+                    <input type="text" id="last-name" placeholder="last name" />
+                </div>
+                <div class="form-group">
+                    <label for="nick-name">Nick name</label>
+                    <input type="text" id="nick-name" placeholder="Nick name" />
+                </div>
+
+                <button id="next-btn">Next</button>
+            </div>
+
+            <div class="step step-2 ">
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" placeholder="Phone" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="phone" placeholder="Email" />
+                </div>
+                <button id="pre-btn">back</button> <button id="next-btn">Next</button>
+            </div>
+
+            <div class="step step-3 ">
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" placeholder="city" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Zip code</label>
+                    <input type="text" id="zip-code" placeholder="Zip code" />
+                </div>
+                <button id="pre-btn">back</button> <button id="submit-btn">Submit</button>
+            </div>
+        </form>
+
+    </section>
+
+    <script>
+        const steps = Array.from(document.querySelectorAll("form .step"));
+        const nextBtn = document.querySelectorAll("form #next-btn");
+        const prevBtn = document.querySelectorAll("form #pre-btn");
+        const form = document.querySelector("form");
+
+        nextBtn.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                changeStep('next');
+            });
+        });
+
+        prevBtn.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                changeStep('prev');
+            });
+        });
+
+        function changeStep(btn) {
+            let index = 0;
+            const active = document.querySelector('form .step.active');
+
+            index = steps.indexOf(active);
+            steps[index].classList.remove('active');
+
+            if (btn === 'next') {
+                index++;
+            } else if (btn === 'prev') {
+                index--;
+
+            }
+
+            steps[index].classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
